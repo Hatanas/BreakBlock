@@ -1,4 +1,4 @@
-﻿
+
 //
 // OpenSiv3D v0.4.3 ゲームテンプレート
 //
@@ -8,14 +8,20 @@
 // include と lib をコピーしてください。
 //
 
-# include "Common.hpp"
-# include "Title.hpp"
-# include "Game.hpp"
-
+#include "Common.hpp"
+#include "Title.hpp"
+#include "Game.hpp"
+#include "model/tetris/tetrisobjects/TetrisObject.hpp"
 void Main()
 {
+    using namespace breakblock::model::tetris::tetrisobjects;
+    
+    TetrisObject o;
+    
+    o.blocks[CellIndex{1,2}] = BlockType::Default;
+    
 	// （Esc キーで終了しないようにする場合はコメントを外す）
-	//System::SetTerminationTriggers(UserAction::CloseButtonClicked);
+	// System::SetTerminationTriggers(UserAction::CloseButtonClicked);
 
 	// タイトルを設定
 	Window::SetTitle(U"ブロックくずし");
@@ -36,7 +42,7 @@ void Main()
 		.setFadeColor(ColorF(1.0));
 
 	// （ゲームシーンから開始する場合はコメントを外す）
-	//manager.init(State::Game);
+	// manager.init(State::Game);
 
 	while (System::Update())
 	{
