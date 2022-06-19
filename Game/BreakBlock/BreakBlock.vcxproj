@@ -115,6 +115,10 @@
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\model\tetris\tetrisobjects\BlockType.cpp" />
+    <ClCompile Include="src\model\tetris\tetrisobjects\CellGeometry.cpp" />
+    <ClCompile Include="src\model\tetris\tetrisobjects\CellMove.cpp" />
+    <ClCompile Include="src\model\tetris\tetrisobjects\CellPos.cpp" />
     <ClCompile Include="src\model\tetris\tetrisobjects\TetrisObject.cpp" />
     <ClCompile Include="src\Title.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -319,6 +323,10 @@
   <ItemGroup>
     <ClInclude Include="src\Common.hpp" />
     <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\model\tetris\tetrisobjects\BlockType.hpp" />
+    <ClInclude Include="src\model\tetris\tetrisobjects\CellGeometry.hpp" />
+    <ClInclude Include="src\model\tetris\tetrisobjects\CellMove.hpp" />
+    <ClInclude Include="src\model\tetris\tetrisobjects\CellPos.hpp" />
     <ClInclude Include="src\model\tetris\tetrisobjects\TetrisObject.hpp" />
     <ClInclude Include="src\Title.hpp" />
     <ClInclude Include="stdafx.h" />

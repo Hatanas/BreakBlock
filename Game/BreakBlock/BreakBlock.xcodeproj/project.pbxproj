@@ -39,6 +39,10 @@
 		2CD8412C283263B2005013A6 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD8412B283263B2005013A6 /* libboost_filesystem.a */; };
 		2D281051284C85B900D18660 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D28104D284C85B800D18660 /* Game.cpp */; };
 		2D281052284C85B900D18660 /* Title.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D28104E284C85B800D18660 /* Title.cpp */; };
+		2DECC6E2285EE58600DF65A2 /* BlockType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DECC6E0285EE58600DF65A2 /* BlockType.cpp */; };
+		2DECC6E5285EE5D200DF65A2 /* CellPos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DECC6E3285EE5D200DF65A2 /* CellPos.cpp */; };
+		2DECC6E8285EF85100DF65A2 /* CellMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DECC6E6285EF85100DF65A2 /* CellMove.cpp */; };
+		2DECC6EB285EF96800DF65A2 /* CellGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DECC6E9285EF96800DF65A2 /* CellGeometry.cpp */; };
 		2DF2624C284C9D2A00109A40 /* TetrisObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DF2624A284C9D2A00109A40 /* TetrisObject.cpp */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,14 @@
 		2D28104E284C85B800D18660 /* Title.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Title.cpp; sourceTree = "<group>"; };
 		2D28104F284C85B800D18660 /* Game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
 		2D281050284C85B800D18660 /* Title.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Title.hpp; sourceTree = "<group>"; };
+		2DECC6E0285EE58600DF65A2 /* BlockType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockType.cpp; sourceTree = "<group>"; };
+		2DECC6E1285EE58600DF65A2 /* BlockType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BlockType.hpp; sourceTree = "<group>"; };
+		2DECC6E3285EE5D200DF65A2 /* CellPos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CellPos.cpp; sourceTree = "<group>"; };
+		2DECC6E4285EE5D200DF65A2 /* CellPos.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CellPos.hpp; sourceTree = "<group>"; };
+		2DECC6E6285EF85100DF65A2 /* CellMove.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CellMove.cpp; sourceTree = "<group>"; };
+		2DECC6E7285EF85100DF65A2 /* CellMove.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CellMove.hpp; sourceTree = "<group>"; };
+		2DECC6E9285EF96800DF65A2 /* CellGeometry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CellGeometry.cpp; sourceTree = "<group>"; };
+		2DECC6EA285EF96800DF65A2 /* CellGeometry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CellGeometry.hpp; sourceTree = "<group>"; };
 		2DF2624A284C9D2A00109A40 /* TetrisObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisObject.cpp; sourceTree = "<group>"; };
 		2DF2624B284C9D2A00109A40 /* TetrisObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisObject.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +223,14 @@
 			children = (
 				2DF2624A284C9D2A00109A40 /* TetrisObject.cpp */,
 				2DF2624B284C9D2A00109A40 /* TetrisObject.hpp */,
+				2DECC6E0285EE58600DF65A2 /* BlockType.cpp */,
+				2DECC6E1285EE58600DF65A2 /* BlockType.hpp */,
+				2DECC6E3285EE5D200DF65A2 /* CellPos.cpp */,
+				2DECC6E4285EE5D200DF65A2 /* CellPos.hpp */,
+				2DECC6E6285EF85100DF65A2 /* CellMove.cpp */,
+				2DECC6E7285EF85100DF65A2 /* CellMove.hpp */,
+				2DECC6E9285EF96800DF65A2 /* CellGeometry.cpp */,
+				2DECC6EA285EF96800DF65A2 /* CellGeometry.hpp */,
 			);
 			path = tetrisobjects;
 			sourceTree = "<group>";
@@ -285,8 +305,12 @@
 			files = (
 				2D281052284C85B900D18660 /* Title.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
+				2DECC6E5285EE5D200DF65A2 /* CellPos.cpp in Sources */,
+				2DECC6E2285EE58600DF65A2 /* BlockType.cpp in Sources */,
 				2D281051284C85B900D18660 /* Game.cpp in Sources */,
+				2DECC6EB285EF96800DF65A2 /* CellGeometry.cpp in Sources */,
 				2DF2624C284C9D2A00109A40 /* TetrisObject.cpp in Sources */,
+				2DECC6E8285EF85100DF65A2 /* CellMove.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
