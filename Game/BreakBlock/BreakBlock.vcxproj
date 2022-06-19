@@ -321,6 +321,7 @@
     <Xml Include="App\example\xml\test.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\model\tetris\tetrisobjects\Mino.h" />
     <ClInclude Include="src\Common.hpp" />
     <ClInclude Include="src\Game.hpp" />
     <ClInclude Include="src\model\tetris\tetrisobjects\BlockType.hpp" />
