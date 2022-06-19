@@ -12,7 +12,6 @@ namespace breakblock::model::tetris::tetrisobjects {
 
 enum BlockType
 {
-    /// デフォルトのブロック
     Default,
 };
 

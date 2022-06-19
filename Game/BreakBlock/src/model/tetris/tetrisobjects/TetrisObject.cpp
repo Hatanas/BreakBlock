@@ -12,11 +12,6 @@ namespace breakblock::model::tetris::tetrisobjects {
 using namespace breakblock::model::tetris::tetrisobjects;
 
 TetrisObject::TetrisObject(BlockMap const &blocks):blocks(blocks){}
-TetrisObject::TetrisObject(TetrisObject const &) = default;
-TetrisObject::TetrisObject(TetrisObject &&) = default;
-TetrisObject &TetrisObject::operator=(TetrisObject const &) = default;
-TetrisObject &TetrisObject::operator=(TetrisObject &&) = default;
-TetrisObject::~TetrisObject() = default;
 
 /// このテトリスオブジェクトと指定されたテトリスオブジェクトが同じ座標のブロックを持つ場合，trueを返す
 bool TetrisObject::overlapsWith(TetrisObject const &other)const{
