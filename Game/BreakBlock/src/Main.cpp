@@ -18,7 +18,7 @@ void Main()
     
     TetrisObject o;
     
-    o.blocks[CellIndex{1,2}] = BlockType::Default;
+    o.blocks[CellPos{1,2}] = BlockType::Default;
     
 	// （Esc キーで終了しないようにする場合はコメントを外す）
 	// System::SetTerminationTriggers(UserAction::CloseButtonClicked);

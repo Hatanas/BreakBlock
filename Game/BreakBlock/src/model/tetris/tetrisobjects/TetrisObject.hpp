@@ -12,7 +12,7 @@
 #include <unordered_set>
 
 #include "BlockType.hpp"
-#include "CellIndex.hpp"
+#include "CellPos.hpp"
 
 namespace breakblock::model::tetris::tetrisobjects {
 
@@ -20,7 +20,7 @@ using namespace breakblock::model::tetris::tetrisobjects;
 
 struct TetrisObject
 {
-    using BlockMap = std::unordered_map<CellIndex, BlockType, CellIndex::Hasher>;
+    using BlockMap = std::unordered_map<CellPos, BlockType, CellPos::Hasher>;
 
     BlockMap blocks;
     
@@ -29,7 +29,8 @@ struct TetrisObject
     TetrisObject(TetrisObject &&) = default;
     TetrisObject &operator=(TetrisObject const &) = default;
     TetrisObject &operator=(TetrisObject &&) = default;
-    
+    ~TetrisObject() = default;
+
     bool collidesWith(TetrisObject const &other)const{
         for (auto const&[cellIndex, blockType] : other.blocks) {
             if(blocks.count(cellIndex)){
