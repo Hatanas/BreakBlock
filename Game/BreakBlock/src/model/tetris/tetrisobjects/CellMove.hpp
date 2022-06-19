@@ -10,6 +10,7 @@
 
 namespace breakblock::model::tetris::tetrisobjects {
 
+/// マトリックス上のベクトル
 struct CellMove {
     
     int rowDelta;

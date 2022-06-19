@@ -11,6 +11,7 @@
 
 namespace breakblock::model::tetris::tetrisobjects {
 
+/// マトリックス上の位置
 struct CellPos
 {
     struct Hasher
