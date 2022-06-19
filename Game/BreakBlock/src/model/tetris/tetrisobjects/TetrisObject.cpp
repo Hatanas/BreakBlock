@@ -23,19 +23,4 @@ bool TetrisObject::overlapsWith(TetrisObject const &other)const{
     return false;
 }
 
-/// このテトリスオブジェクトが持たないブロックを，指定されたテトリスオブジェクトが持っている場合，それを追加する
-void TetrisObject::mergeIfAbsent(TetrisObject const &other) {
-    for (auto const&[cellIndex, blockType] : other.blocks) {
-        if(blocks.count(cellIndex)) continue;
-        blocks.insert({cellIndex, blockType});
-    }
-}
-
-/// このテトリスオブジェクトが持つブロックを，指定されたテトリスオブジェクトも持っている場合，それを削除する
-void TetrisObject::remove(TetrisObject const &other) {
-    for (auto const&[cellIndex, blockType] : other.blocks) {
-        blocks.erase(cellIndex);
-    }
-}
-
 }
