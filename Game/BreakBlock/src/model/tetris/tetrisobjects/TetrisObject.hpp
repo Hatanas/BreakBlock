@@ -18,17 +18,10 @@ namespace breakblock::model::tetris::tetrisobjects {
 
 using namespace breakblock::model::tetris::tetrisobjects;
 
-using BlockSet = std::unordered_set<CellIndex, CellIndex::Hasher>;
-
-using BlockMap = std::unordered_map<CellIndex, BlockType, CellIndex::Hasher>;
-
-template <class X>
-concept FromBlockMap = requires(X&x){
-    X(std::declval<BlockMap>());
-};
-
 struct TetrisObject
 {
+    using BlockMap = std::unordered_map<CellIndex, BlockType, CellIndex::Hasher>;
+
     BlockMap blocks;
     
     TetrisObject(BlockMap const &blocks = BlockMap{}):blocks(blocks){}
@@ -46,23 +39,17 @@ struct TetrisObject
         return false;
     }
     
-    template<FromBlockMap OutTetrisObject = TetrisObject>
-    OutTetrisObject mergeIfAbsent(TetrisObject const &other)const{
-        BlockMap outBlocks = blocks;
+    void mergeIfAbsent(TetrisObject const &other) {
         for (auto const&[cellIndex, blockType] : other.blocks) {
-            if(outBlocks.count(cellIndex)) continue;
-            outBlocks.insert({cellIndex, blockType});
+            if(blocks.count(cellIndex)) continue;
+            blocks.insert({cellIndex, blockType});
         }
-        return OutTetrisObject(outBlocks);
     }
     
-    template<FromBlockMap OutTetrisObject = TetrisObject>
-    OutTetrisObject remove(TetrisObject const &other) const {
-        BlockMap outBlocks = blocks;
+    void remove(TetrisObject const &other) {
         for (auto const&[cellIndex, blockType] : other.blocks) {
-            outBlocks.erase(cellIndex);
+            blocks.erase(cellIndex);
         }
-        return OutTetrisObject(outBlocks);
     }
     
 };
