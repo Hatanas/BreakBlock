@@ -12,14 +12,18 @@
 #include "Title.hpp"
 #include "Game.hpp"
 #include "model/tetris/tetrisobjects/TetrisObject.hpp"
+#include "CellGeometry.hpp"
 void Main()
 {
-    using namespace breakblock::model::tetris::tetrisobjects;
-    
+    using breakblock::model::tetris::tetrisobjects::TetrisObject;
+    using breakblock::model::tetris::tetrisobjects::CellPos;
+    using breakblock::model::tetris::tetrisobjects::CellMove;
+    using breakblock::model::tetris::tetrisobjects::BlockType;
+
     TetrisObject o;
     
     o.blocks[CellPos{1,2}] = BlockType::Default;
-    
+    CellPos{1,2} + CellMove{1,2};
 	// （Esc キーで終了しないようにする場合はコメントを外す）
 	// System::SetTerminationTriggers(UserAction::CloseButtonClicked);
 

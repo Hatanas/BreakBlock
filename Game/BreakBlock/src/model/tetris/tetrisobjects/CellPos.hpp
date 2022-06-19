@@ -15,19 +15,14 @@ struct CellPos
 {
     struct Hasher
     {
-        int operator()(CellPos const &cellPos) const
-        {
-            return cellPos.row * 31 + cellPos.col;
-        }
+        int operator()(CellPos const &cellPos) const;
     };
     
     int row;
     
     int col;
     
-    bool operator==(CellPos const&other) const {
-        return row == other.row && col == other.col;
-    }
+    bool operator==(CellPos const&other) const ;
 };
 
 }

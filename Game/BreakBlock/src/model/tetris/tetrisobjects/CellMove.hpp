@@ -16,9 +16,19 @@ struct CellMove {
     
     int colDelta;
     
-    bool operator==(CellMove const&other) const {
-        return rowDelta == other.rowDelta && colDelta == other.colDelta;
-    }
+    bool operator==(CellMove const&other) const;
+    
+    CellMove operator+()const;
+    
+    CellMove operator-()const;
+    
+    CellMove &operator+=(CellMove const&other);
+    
+    CellMove &operator-=(CellMove const&other);
+    
+    CellMove operator+(CellMove const&other)const;
+    
+    CellMove operator-(CellMove const&other)const;
 };
 
 }

@@ -24,35 +24,21 @@ struct TetrisObject
 
     BlockMap blocks;
     
-    TetrisObject(BlockMap const &blocks = BlockMap{}):blocks(blocks){}
-    TetrisObject(TetrisObject const &) = default;
-    TetrisObject(TetrisObject &&) = default;
-    TetrisObject &operator=(TetrisObject const &) = default;
-    TetrisObject &operator=(TetrisObject &&) = default;
-    ~TetrisObject() = default;
+    TetrisObject(BlockMap const &blocks = BlockMap{});
+    TetrisObject(TetrisObject const &);
+    TetrisObject(TetrisObject &&);
+    TetrisObject &operator=(TetrisObject const &);
+    TetrisObject &operator=(TetrisObject &&);
+    ~TetrisObject();
 
-    bool collidesWith(TetrisObject const &other)const{
-        for (auto const&[cellIndex, blockType] : other.blocks) {
-            if(blocks.count(cellIndex)){
-                return true;
-            }
-        }
-        return false;
-    }
+    /// このテトリスオブジェクトと指定されたテトリスオブジェクトが同じ座標のブロックを持つ場合，trueを返す
+    bool overlapsWith(TetrisObject const &other)const;
     
-    void mergeIfAbsent(TetrisObject const &other) {
-        for (auto const&[cellIndex, blockType] : other.blocks) {
-            if(blocks.count(cellIndex)) continue;
-            blocks.insert({cellIndex, blockType});
-        }
-    }
+    /// このテトリスオブジェクトが持たないブロックを，指定されたテトリスオブジェクトが持っている場合，それを追加する
+    void mergeIfAbsent(TetrisObject const &other);
     
-    void remove(TetrisObject const &other) {
-        for (auto const&[cellIndex, blockType] : other.blocks) {
-            blocks.erase(cellIndex);
-        }
-    }
-    
+    /// このテトリスオブジェクトが持つブロックを，指定されたテトリスオブジェクトも持っている場合，それを削除する
+    void remove(TetrisObject const &other);
 };
 }
 #endif /* TetrisObject_hpp */
