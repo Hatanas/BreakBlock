@@ -9,48 +9,60 @@
 #define TetrisObject_hpp
 
 #include <unordered_map>
+#include <unordered_set>
+
+#include "BlockType.hpp"
+#include "CellIndex.hpp"
 
 namespace breakblock::model::tetris::tetrisobjects {
 
-enum BlockType
-{
-    Default,
-};
+using namespace breakblock::model::tetris::tetrisobjects;
 
-struct CellIndex
-{
-    int row;
-    int column;
-    struct Hasher
-    {
-        int operator()(CellIndex const &cellIndex) const
-        {
-            return cellIndex.row * 31 + cellIndex.column;
-        }
-    };
-    bool operator==(CellIndex const&other)const{
-        return row == other.row && column == other.column;
-    }
+using BlockSet = std::unordered_set<CellIndex, CellIndex::Hasher>;
+
+using BlockMap = std::unordered_map<CellIndex, BlockType, CellIndex::Hasher>;
+
+template <class X>
+concept FromBlockMap = requires(X&x){
+    X(std::declval<BlockMap>());
 };
 
 struct TetrisObject
 {
-    std::unordered_map<CellIndex, BlockType, CellIndex::Hasher> blocks;
-    bool intersects(TetrisObject const&other)const{
-        TetrisObject out;
-        for (auto const&[cellIndex, blockType] : blocks) {
-            if(other.blocks.find(cellIndex) != other.blocks.end()){
-                out.blocks.insert({cellIndex, blockType});
+    BlockMap blocks;
+    
+    TetrisObject(BlockMap const &blocks = BlockMap{}):blocks(blocks){}
+    TetrisObject(TetrisObject const &) = default;
+    TetrisObject(TetrisObject &&) = default;
+    TetrisObject &operator=(TetrisObject const &) = default;
+    TetrisObject &operator=(TetrisObject &&) = default;
+    
+    bool collidesWith(TetrisObject const &other)const{
+        for (auto const&[cellIndex, blockType] : other.blocks) {
+            if(blocks.count(cellIndex)){
+                return true;
             }
         }
-        return out.blocks.size() > 0;
+        return false;
     }
-    TetrisObject merge(TetrisObject const&other)const{
-        TetrisObject out = *this;
-        for (auto const&[cellIndex, blockType] : blocks) {
-            out.blocks.insert({cellIndex, blockType});
+    
+    template<FromBlockMap OutTetrisObject = TetrisObject>
+    OutTetrisObject mergeIfAbsent(TetrisObject const &other)const{
+        BlockMap outBlocks = blocks;
+        for (auto const&[cellIndex, blockType] : other.blocks) {
+            if(outBlocks.count(cellIndex)) continue;
+            outBlocks.insert({cellIndex, blockType});
         }
-        return out;
+        return OutTetrisObject(outBlocks);
+    }
+    
+    template<FromBlockMap OutTetrisObject = TetrisObject>
+    OutTetrisObject remove(TetrisObject const &other) const {
+        BlockMap outBlocks = blocks;
+        for (auto const&[cellIndex, blockType] : other.blocks) {
+            outBlocks.erase(cellIndex);
+        }
+        return OutTetrisObject(outBlocks);
     }
     
 };
