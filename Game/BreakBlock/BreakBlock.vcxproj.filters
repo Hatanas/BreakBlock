@@ -153,6 +153,18 @@
     <ClCompile Include="src\model\tetris\tetrisobjects\TetrisObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\model\tetris\tetrisobjects\BlockType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\model\tetris\tetrisobjects\CellGeometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\model\tetris\tetrisobjects\CellMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\model\tetris\tetrisobjects\CellPos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -796,6 +808,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\model\tetris\tetrisobjects\TetrisObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model\tetris\tetrisobjects\BlockType.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model\tetris\tetrisobjects\CellGeometry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model\tetris\tetrisobjects\CellMove.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model\tetris\tetrisobjects\CellPos.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
